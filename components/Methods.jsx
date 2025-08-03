@@ -90,7 +90,7 @@ export default function Methods() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-[15px] p-14 transition-all sm:text-[15px] md:text-[20px] font-medium p-4 flex flex-col flex-grow"
+                    className="text-[15px] p-8 lg:p-14 transition-all sm:text-[15px] md:text-[20px] font-medium  flex flex-col flex-grow"
                   >
                     {card.content}
                     <div className="mt-auto flex justify-end">

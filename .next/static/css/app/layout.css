@@ -1206,6 +1206,9 @@ video {
 .p-14 {
   padding: 3.5rem;
 }
+.p-8 {
+  padding: 2rem;
+}
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -1875,6 +1878,10 @@ select:focus {
 
   .lg\:p-\[20px\] {
     padding: 20px;
+  }
+
+  .lg\:p-14 {
+    padding: 3.5rem;
   }
 
   .lg\:px-\[10px\] {
