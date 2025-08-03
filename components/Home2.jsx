@@ -5,9 +5,9 @@ import Link from 'next/link'
 
 export default function Home2() {
     return (
-        <div className='container mx-auto'>
+        <div className=''>
             <div className="flex flex-wrap">
-                <div className='w-full lg:w-[50%] p-[0] pt-[40px]  lg:p-[20px]'>
+                <div className='w-full lg:w-[50%]  pt-[40px] '>
                     <Image src={img} className='rounded-[20px]' alt='home2' />
                 </div>
                 <div className='w-full lg:w-[50%] py-[20px] flex flex-col justify-between items-start 2xl:py-[60px] lg:px-[10px]'>

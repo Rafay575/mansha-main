@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function GetInTouch() {
   return (
-    <div className='container mx-auto lg:p-[20px] text-center'>
+    <div className=' text-center'>
       <div className='getintouch min-h-[300px] w-full text-center rounded-[20px] py-[20px] px-[15%]'>
         <p className='text-white text-[50px] font-bold'>Get In Touch</p>
         <p className='text-white text-[19px] mt-[20px]'>We'd love to connect and explore how we can support your brand's journey. Whether you're
