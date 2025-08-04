@@ -50,7 +50,7 @@ export default function Methods() {
         The <span className="text-[#3F82D7]">4DS</span> Method
       </p>
 
-      <div className="flex flex-wrap justify-center gap-4 py-[20px] w-full mx-auto">
+      <div className="flex flex-wrap justify-center gap-3 py-[20px] lg:px-32 w-full mx-auto">
         {cardData.map((card) => {
           const isActive = activeCard === card.id;
 
