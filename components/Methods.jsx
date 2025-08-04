@@ -38,8 +38,19 @@ import { motion, AnimatePresence } from "framer-motion";
     ];
 
 
+
 export default function Methods() {
   const [activeCard, setActiveCard] = useState(1);
+
+  // Helper to decide if screen is md or bigger
+  const [isMd, setIsMd] = React.useState(false);
+  React.useEffect(() => {
+    const onResize = () => setIsMd(window.innerWidth >= 768);
+    onResize();
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   const handleToggle = (id) => {
     if (id !== activeCard) setActiveCard(id);
   };
@@ -54,6 +65,19 @@ export default function Methods() {
         {cardData.map((card) => {
           const isActive = activeCard === card.id;
 
+          // Responsive: width for md+, height for sm
+          const transitionStyles = isMd
+            ? {
+                width: isActive ? "35%" : "14%",
+                height: "600px", // fixed height on md+
+                minWidth: isActive ? "220px" : "110px",
+              }
+            : {
+                width: "96%",
+                height: isActive ? "400px" : "100px",
+                minWidth: "200px",
+              };
+
           return (
             <motion.div
               key={card.id}
@@ -62,11 +86,10 @@ export default function Methods() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className={`
                 rounded-[25px] p-2 sm:p-4 cursor-pointer overflow-hidden flex flex-col
-                bg-gray-50 bg-opacity-50 text-white h-[400px]  md:h-[600px] w-[96%] mx-auto
-                ${isActive ? "md:w-[35%] " : "md:w-[14%]"}
+                bg-gray-50 bg-opacity-50 text-white mx-auto
                 transition-all duration-500 ease-in-out
-              
               `}
+              style={transitionStyles}
             >
               {/* Header */}
               <div className="flex items-center mb-2 text-white font-semibold text-2xl">
@@ -90,7 +113,7 @@ export default function Methods() {
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="text-[15px] p-8 lg:p-14 transition-all sm:text-[15px] md:text-[20px] font-medium  flex flex-col flex-grow"
+                    className="text-[15px] p-8 lg:p-14 transition-all sm:text-[15px] md:text-[20px] font-medium flex flex-col flex-grow"
                   >
                     {card.content}
                     <div className="mt-auto flex justify-end">

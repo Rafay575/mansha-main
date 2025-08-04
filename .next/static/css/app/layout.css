@@ -956,6 +956,9 @@ video {
 .cursor-pointer {
   cursor: pointer;
 }
+.resize {
+  resize: both;
+}
 .auto-rows-min {
   grid-auto-rows: min-content;
 }
