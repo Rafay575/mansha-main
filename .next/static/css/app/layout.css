@@ -717,6 +717,14 @@ video {
   margin-top: 60px;
   margin-bottom: 60px;
 }
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .-ml-4 {
   margin-left: -1rem;
 }
@@ -779,6 +787,9 @@ video {
 }
 .mt-auto {
   margin-top: auto;
+}
+.mt-3 {
+  margin-top: 0.75rem;
 }
 .block {
   display: block;
@@ -848,6 +859,21 @@ video {
 }
 .h-full {
   height: 100%;
+}
+.h-\[230px\] {
+  height: 230px;
+}
+.\!h-full {
+  height: 100% !important;
+}
+.h-\[200px\] {
+  height: 200px;
+}
+.h-\[220px\] {
+  height: 220px;
+}
+.h-\[370px\] {
+  height: 370px;
 }
 .min-h-\[300px\] {
   min-height: 300px;
@@ -1157,6 +1183,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
+.bg-\[\#eaf6fb\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 246 251 / var(--tw-bg-opacity, 1));
+}
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1277,6 +1307,12 @@ video {
 }
 .pt-\[70px\] {
   padding-top: 70px;
+}
+.pb-24 {
+  padding-bottom: 6rem;
+}
+.pb-32 {
+  padding-bottom: 8rem;
 }
 .text-center {
   text-align: center;
@@ -1735,6 +1771,10 @@ select:focus {
     width: 100%;
   }
 
+  .md\:w-\[80\%\] {
+    width: 80%;
+  }
+
   .md\:basis-full {
     flex-basis: 100%;
   }
@@ -1752,8 +1792,26 @@ select:focus {
     padding-bottom: 40px;
   }
 
+  .md\:py-10 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .md\:py-6 {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
   .md\:pl-\[50px\] {
     padding-left: 50px;
+  }
+
+  .md\:pb-20 {
+    padding-bottom: 5rem;
+  }
+
+  .md\:pb-32 {
+    padding-bottom: 8rem;
   }
 
   .md\:text-\[101px\] {
@@ -1774,6 +1832,21 @@ select:focus {
 
   .md\:text-\[70px\] {
     font-size: 70px;
+  }
+
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+  .md\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .md\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .md\:leading-\[72px\] {
@@ -1813,6 +1886,10 @@ select:focus {
 
   .lg\:h-full {
     height: 100%;
+  }
+
+  .lg\:h-\[220px\] {
+    height: 220px;
   }
 
   .lg\:w-1\/5 {

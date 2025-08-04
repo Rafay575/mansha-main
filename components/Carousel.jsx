@@ -10,25 +10,44 @@ import {
 } from "@/components/ui/carousel";
 
 const carouselData = [
-    {
-        id: 1,
-        title: "Precision in Every Step",
-        content:
-            "We apply continuous improvement principles to everything we do. Through lean manufacturing, data-driven quality control, and rigorous benchmarking, we ensure consistent, high performance.",
-    },
-    {
-        id: 2,
-        title: "Create to Evolve",
-        content:
-            "Innovation is structured into our development cycles. From automated workflows to next-gen material research, we attempt to stay ahead by designing smarter, faster solutions.",
-    },
-    {
-        id: 3,
-        title: "The Human Element",
-        content:
-            "Worker welfare is a non-negotiable. We invest in safe environments, fair compensation, and ongoing development. Human-centric systems build resilient teams and better outcomes.",
-    },
+  {
+    id: 1,
+    title: "Focused on you",
+    content:
+      "We conduct our operations with one goal in mind: customer success. Every process, product, and partnership is shaped by real world requirements and feedback. Responsiveness, reliability, and long-term value define how we deliver.",
+  },
+  {
+    id: 2,
+    title: "Clear by Design",
+    content:
+      "Transparency is embedded in our systems from procurement to delivery. We maintain open communication, consistent reporting, and traceable workflows. This clarity builds trust and strengthens collaboration.",
+  },
+  {
+    id: 3,
+    title: "Precision in Every Step",
+    content:
+      "We apply continuous improvement principles to everything we do. Through lean manufacturing, data-driven quality control, and rigorous benchmarking, we ensure consistent, high performance.",
+  },
+  {
+    id: 4,
+    title: "Future First",
+    content:
+      "We prioritize energy efficiency, circular design, and material responsibility across our supply chain. Our environmental targets are measurable, monitored, and evolving.",
+  },
+  {
+    id: 5,
+    title: "The Human Element",
+    content:
+      "Worker welfare is a non-negotiable. We invest in safe environments, fair compensation, and ongoing skill and people development. Human-centric systems lead to resilient teams and superior outcomes.",
+  },
+  {
+    id: 6,
+    title: "Create to Evolve",
+    content:
+      "Innovation is structured into our development cycles. From automated workflows to next-gen material research, we attempt to stay ahead by designing smarter, faster, and evolving.",
+  },
 ];
+
 
 export default function Carouselone() {
     const [api, setApi] = useState();
@@ -54,23 +73,22 @@ export default function Carouselone() {
 
     return (
         <div className="w-full flex justify-center py-10">
-            <Carousel opts={{ align: "start" }} setApi={setApi} className="w-[70%] md:w-full max-w-xl">
+            <Carousel opts={{ align: "start"}}  setApi={setApi} className="w-[70%] md:w-[80%] max-w-xl">
                 <CarouselContent>
                     {carouselData.map((item, index) => (
                         <CarouselItem key={index} className="md:basis-full">
-                            <div className="p-4">
-                                <Card className="bg-[#EAF7FE] text-black shadow-lg h-[340px]">
-                                    <CardContent className="flex flex-col gap-4 p-6">
-                                        <h3 className="text-xl font-bold">{item.title}</h3>
-                                        <p className="text-sm leading-6">{item.content}</p>
+                            <div className="p-2">
+                                <Card className="bg-[#EAF7FE] text-black shadow-lg h-[370px] lg:h-[220px]">
+                                    <CardContent className="flex flex-col gap-4 p-4">
+                                        <h3 className="text-xl md:text-2xl font-bold text-center">{item.title}</h3>
+                                        <p className="text-base md:text-lg font-semibold  leading-6">{item.content}</p>
                                     </CardContent>
                                 </Card>
                             </div>
                         </CarouselItem>
                     ))}
                 </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
+               
             </Carousel>
         </div>
     );
