@@ -37,7 +37,7 @@ export default function Approach() {
         onClick={() => handleToggle(card.id)}
         className={`
           relative cursor-pointer overflow-hidden rounded-[1.5rem]
-
+          my-20 lg:my-0
           /* sizing */
           w-full ${isActive ? "lg:w-3/5" : "lg:w-1/5"}
           h-32 lg:h-40
