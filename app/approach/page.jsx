@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import img from "@/public/images/teaching.webp";
+import React from "react";
+// import img from "@/public/images/teaching.webp";
 import Image from "next/image";
 import img1 from "@/public/images/img1.jpg";
 import img2 from "@/public/images/img2.webp";
@@ -12,6 +12,7 @@ import img7 from "@/public/images/img7.webp";
 import img8 from "@/public/images/img8.webp";
 import GetInTouch from "@/components/GetInTouch";
 import Methods from "@/components/Methods";
+import ApprocahHero from "@/components/ApprocahHero";
 
 export default function page() {
   const data = [
@@ -27,32 +28,7 @@ export default function page() {
 
   return (
     <>
-      <div className="w-[96vw] mx-auto">
-        {/* Section1  */}
-        <div className="">
-          <div className="py-[20px] md:py-[40px] lg:py-[80px]">
-            <p className="text-[50px] leading-[40px] md:text-[101px] font-bold md:leading-[72px]">
-              {" "}
-              <span className=" text-[#3c9be8]  ">Innovation </span>in <br />
-              every step
-            </p>
-          </div>
-          <div className="flex flex-wrap">
-            <div className="w-full lg:w-[50%] p-[0] pt-[40px]  lg:p-[20px]">
-              <Image src={img} className="rounded-[40px]" alt="home2" />
-            </div>
-            <div className="w-full lg:w-[50%] py-[20px] flex flex-col items-start ">
-              <p className="text-[25px] xl:text-[40px] lg:pr-10  mt-[10px] xl:mt-[30px] font-bold ">
-                From process optimization and smart tooling to responsible
-                material sourcing, we embed forward-thinking solutions into
-                every layer of our work. Our approach blends data, design, and
-                discipline to create products that don’t just meet standards —
-                they redefine them.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+     <ApprocahHero />
       {/* Section2  */}
       <Methods />
 
