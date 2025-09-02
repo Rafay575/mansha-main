@@ -58,7 +58,7 @@ export default function Methods() {
   return (
     <div className="working mt-[60px] py-20">
       <p className="text-[50px] md:text-[70px] text-white font-bold leading-[72px] text-center">
-        The <span className="text-[#3F82D7]">4DS</span> Method
+        The <span className="text-[#3F82D7]">4 Ds</span> Method
       </p>
 
       <div className="flex flex-wrap justify-center gap-3 py-[20px] lg:px-32 w-full mx-auto">
@@ -92,7 +92,7 @@ export default function Methods() {
               style={transitionStyles}
             >
               {/* Header */}
-              <div className="flex items-center mb-2 text-white font-semibold text-2xl">
+              <div className="flex items-center  my-2 ml-6 text-white font-semibold text-2xl">
                 {card.id.toString().padStart(2, "0")}
                 {isActive && (
                   <>
