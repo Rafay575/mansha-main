@@ -27,7 +27,7 @@ export default function page() {
   return (
     <div className="w-[96vw] mx-auto overflow-x-hidden">
       <div className="">
-        <div className="py-[20px] md:py-[40px] lg:py-[80px]">
+        <div className="pt-[20px] md:pt-[40px] lg:pt-[80px] pb-[20px]">
           <p className="text-[50px] leading-[50px] md:text-[101px] font-bold md:leading-[72px]">
             Built on{" "}
           </p>
@@ -40,7 +40,7 @@ export default function page() {
             <Image src={img} className="rounded-[20px]" alt="home2" />
           </div>
           <div className="w-full lg:w-[50%]  flex flex-col items-start ">
-            <p className="text-[21px] xl:text-[30px]  mt-[20px] xl:mt-[40px] font-semibold ">
+            <p className="text-[25px] xl:text-[30px]  mt-[20px] xl:mt-[32px] font-semibold ">
               From a small sports shop opened in 1959 to a trusted journey is
               built on passion, precision, and progress.
             </p>

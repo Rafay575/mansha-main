@@ -10,7 +10,7 @@ export default function Home2() {
                 <div className='w-full lg:w-[50%]  pt-[40px] '>
                     <Image src={img} className='rounded-[20px]' alt='home2' />
                 </div>
-                <div className='w-full lg:w-[50%] py-[20px] flex flex-col justify-between items-start 2xl:py-[60px] lg:px-[10px]'>
+                <div className='w-full lg:w-[50%] py-[20px] flex flex-col space-y-[20px] mt-[20px] items-start lg:px-[10px]'>
                     <p className='text-[38px] xl:text-[43px] font-bold'>Who we are </p>
                     <p className='text-[17px] xl:text-[19px] font-[400] mt-[10px] lg:mt-[0]'>Rooted in tradition, driven by innovation, Mansha & Brothers
                         is where traditional craftsmanship meets the future. We craft
@@ -24,7 +24,7 @@ export default function Home2() {
                     </Link>
                 </div>
             </div>
-            <hr className='my-[20px] border-[1.5px] border-[#808080]'/>
+            <hr className='my-[20px] border-[0.5px] border-[#cfcfcf]'/>
         </div>
     )
 }
