@@ -12,41 +12,42 @@ import {
 const carouselData = [
   {
     id: 1,
-    title: "Focused on you",
+    title: "Focused on You",
     content:
-      "We conduct our operations with one goal in mind: customer success. Every process, product, and partnership is shaped by real world requirements and feedback. Responsiveness, reliability, and long-term value define how we deliver.",
+      "Our priority is your success, built on responsiveness, reliability, and long-term value.",
   },
   {
     id: 2,
-    title: "Clear by Design",
+    title: "Clear By Design",
     content:
-      "Transparency is embedded in our systems from procurement to delivery. We maintain open communication, consistent reporting, and traceable workflows. This clarity builds trust and strengthens collaboration.",
+      "Transparency guides every stage from sourcing to delivery.",
   },
   {
     id: 3,
-    title: "Precision in Every Step",
+    title: "Precision In Every Step",
     content:
-      "We apply continuous improvement principles to everything we do. Through lean manufacturing, data-driven quality control, and rigorous benchmarking, we ensure consistent, high performance.",
+      "We follow continuous improvement in everything we do. Through lean manufacturing, data-driven quality control, and benchmarking, we deliver a consistent level of manufacturing.",
   },
   {
     id: 4,
     title: "Future First",
     content:
-      "We prioritize energy efficiency, circular design, and material responsibility across our supply chain. Our environmental targets are measurable, monitored, and evolving.",
+      "We drive energy efficiency, circular design, and material responsibility with measurable and evolving goals.",
   },
   {
     id: 5,
     title: "The Human Element",
     content:
-      "Worker welfare is a non-negotiable. We invest in safe environments, fair compensation, and ongoing skill and people development. Human-centric systems lead to resilient teams and superior outcomes.",
+      "Worker welfare will always be non-negotiable. Safety, fair pay, and growth create stronger, more capable teams.",
   },
   {
     id: 6,
-    title: "Create to Evolve",
+    title: "Created to Evolve",
     content:
-      "Innovation is structured into our development cycles. From automated workflows to next-gen material research, we attempt to stay ahead by designing smarter, faster, and evolving.",
+      "Streamlined processes, advanced materials, and designs built for the future.",
   },
 ];
+
 
 
 export default function Carouselone() {

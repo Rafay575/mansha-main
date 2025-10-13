@@ -1,23 +1,30 @@
 "use client";
 import React from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { X } from "lucide-react";
 import Image from "next/image";
 import logo from "@/public/images/logo.svg";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-
 import {
   Sheet,
   SheetContent,
   SheetDescription,
   SheetHeader,
   SheetTrigger,
-  SheetClose,
 } from "@/components/ui/sheet";
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const pathname = usePathname(); // <-- Detect current route
+
+  // Helper for active class
+  const getLinkClass = (path) =>
+    `navlinks px-3 py-2 rounded-full transition-all duration-300 ${
+      pathname === path
+        ? "bg-[#3F82D7]  !text-white font-semibold"
+        : "text-gray-800 hover:bg-[#3F82D7]/10 hover:text-[#3F82D7]"
+    }`;
 
   return (
     <nav className="fixed top-0 left-0 w-[100vw] z-[40] bg-white border-b-4 border-[#3F82D7]">
@@ -31,22 +38,23 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="items-center mx-auto hidden md:flex">
-          <Link href="/" className="navlinks">
+        {/* Desktop Links */}
+        <div className="items-center mx-auto hidden md:flex gap-1">
+          <Link href="/" className={getLinkClass("/")}>
             Home
           </Link>
-          <Link href="/identity" className="navlinks">
+          <Link href="/identity" className={getLinkClass("/identity")}>
             Identity
           </Link>
-          <Link href="/approach" className="navlinks">
+          <Link href="/approach" className={getLinkClass("/approach")}>
             Approach
           </Link>
-          <Link href="/contact" className="navlinks">
+          <Link href="/contact" className={getLinkClass("/contact")}>
             Contact
           </Link>
         </div>
 
-        {/* Mobile menu */}
+        {/* Mobile Menu */}
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
             className="block md:hidden ml-auto relative z-[50]"
@@ -73,7 +81,6 @@ export default function Navbar() {
             side="right"
             className="p-0 w-[50%] max-w-none z-[50] border-l border-gray-200"
           >
-            {/* Slide/opacity animation for the panel content */}
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -81,7 +88,7 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 240, damping: 26 }}
               className="h-full flex flex-col bg-white"
             >
-              {/* Header with logo + close */}
+              {/* Header */}
               <SheetHeader className="p-3 border-b">
                 <div className="flex items-center justify-between">
                   <Link
@@ -96,40 +103,39 @@ export default function Navbar() {
                       priority
                     />
                   </Link>
-                
                 </div>
               </SheetHeader>
 
-              {/* Body / links */}
+              {/* Mobile Links */}
               <SheetDescription className="sr-only">
                 Mobile navigation
               </SheetDescription>
               <div className="flex-1 overflow-y-auto">
-                <div className="flex flex-col items-start px-3 py-6 gap-0">
+                <div className="flex flex-col items-start px-3 py-6 gap-1">
                   <Link
                     href="/"
-                    className="navlinks"
+                    className={getLinkClass("/")}
                     onClick={() => setOpen(false)}
                   >
                     Home
                   </Link>
                   <Link
                     href="/identity"
-                    className="navlinks"
+                    className={getLinkClass("/identity")}
                     onClick={() => setOpen(false)}
                   >
                     Identity
                   </Link>
                   <Link
                     href="/approach"
-                    className="navlinks"
+                    className={getLinkClass("/approach")}
                     onClick={() => setOpen(false)}
                   >
                     Approach
                   </Link>
                   <Link
                     href="/contact"
-                    className="navlinks"
+                    className={getLinkClass("/contact")}
                     onClick={() => setOpen(false)}
                   >
                     Contact
@@ -137,10 +143,9 @@ export default function Navbar() {
                 </div>
               </div>
 
-              {/* Footer inside sheet */}
+              {/* Footer */}
               <div className="px-5 py-4 border-t text-[10px] text-gray-500">
                 <p>Mansha & Brothers © {new Date().getFullYear()}</p>
-             
               </div>
             </motion.div>
           </SheetContent>

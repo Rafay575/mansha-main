@@ -18,7 +18,7 @@ const ApproachHero = () => {
           <div className="w-full lg:w-1/2 p-0 pt-10 lg:p-5">
             <div className="relative h-[260px] sm:h-[360px] md:h-[440px] lg:h-[520px] rounded-[40px] overflow-hidden">
               <Image
-                src="/images/teaching.webp"
+                src="/images/iie.jpg"
                 alt="home2"
                 fill
                 className="object-cover"
@@ -30,13 +30,9 @@ const ApproachHero = () => {
           </div>
 
           {/* Text block */}
-          <div className="w-full lg:w-1/2 py-5 flex flex-col items-start">
-            <p className="text-[25px] xl:text-[40px] lg:pr-10 mt-2 xl:mt-8 font-bold">
-              From process optimization and smart tooling to responsible
-              material sourcing, we embed forward-thinking solutions into every
-              layer of our work. Our approach blends data, design, and
-              discipline to create products that don’t just meet standards —
-              they redefine them.
+          <div className="w-full lg:w-1/2 py-5 md:py-0 flex flex-col items-start">
+            <p className="text-[25px] xl:text-[40px] lg:pr-10 mt-4  font-bold">
+              From process optimisation to responsible sourcing, forward-thinking solutions shape every layer of our work. By combining data, design, and discipline, we create products that set new standards.
             </p>
           </div>
         </div>

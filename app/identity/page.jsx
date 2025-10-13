@@ -1,29 +1,10 @@
 import React from "react";
-import img from "@/public/images/kick.webp";
+import img from "@/public/images/bop.jpg";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
 
 export default function page() {
-  const carouselData = [
-    {
-      id: 1,
-      title: "Precision in Every Step",
-      content:
-        "We apply continuous improvement principles to everything we do. Through lean manufacturing, data-driven quality control, and rigorous benchmarking, we ensure consistent, high p",
-    },
-    {
-      id: 2,
-      title: "Create to Evolve",
-      content:
-        "Innovation is structured into our development cycles. From automated workflows to next-gen material research, we attempt to stay ahead by designing smarter, faster, and",
-    },
-    {
-      id: 3,
-      title: "The Human Element",
-      content:
-        "Worker welfare is a non-negotiable. We invest in safe environments, fair compensation, and ongoing skill and people development. Human-centric systems lead to resilient teams and superior outcomes.",
-    },
-  ];
+ 
   return (
     <div className="w-[96vw] mx-auto overflow-x-hidden">
       <div className="">
@@ -41,14 +22,7 @@ export default function page() {
           </div>
           <div className="w-full lg:w-[50%]  flex flex-col items-start ">
             <p className="text-[25px] xl:text-[30px]  mt-[20px] xl:mt-[32px] font-semibold ">
-              From a small sports shop opened in 1959 to a trusted journey is
-              built on passion, precision, and progress.
-            </p>
-            <br />
-            <p className="text-[25px] xl:text-[30px]  mt-[10px] lg:mt-[0] font-semibold">
-              Decades later, that same spirit drives us in everything we do from
-              the values we stand by to the clients and partners we proudly
-              stand with. This is who we are, and why it matters.
+             From a small sports shop opened in 1959 to a sports manufacturer trusted by some of the biggest brands in the world. This journey has is built on passion, precision, and progress and decades later, that same spirit drives us in everything that we do.
             </p>
           </div>
         </div>
@@ -56,7 +30,9 @@ export default function page() {
           <h2 className="text-center font-bold text-2xl md:text-3xl">
             Trusted By
           </h2>
-          {/* Add logos here below if you want */}
+       <p className="text-[17px] md:text-[24px] text-center px-5 mt-6">
+        Recognised for our consistent quality and dependable service, we are proud to be a manufacturing partner to world-class brands including Decathlon, adidas, Reebok, and Everlast. Our enduring relationships reflect a shared focus on performance and integrity.
+       </p>
         </section>
         <div className="text-center mt-[60px]">
           <p className="text-[58px] leading-[59px] font-bold ">

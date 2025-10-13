@@ -1,17 +1,45 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import contactimg from "@/public/images/contactimg.jpg";
+import contactimg from "@/public/images/cu.jpg";
 
 export default function ContactSection({ imageSrc }) {
   const imgSrc = imageSrc || contactimg;
 
-  // inside your ContactSection component
-  const [status, setStatus] = React.useState(null);
+  const [status, setStatus] = React.useState(null); // "success" | "error" | null
+  const [loading, setLoading] = React.useState(false);
+  const [toast, setToast] = React.useState({
+    open: false,
+    type: "success", // "success" | "error" | "info"
+    message: "",
+  });
+
+  const formRef = React.useRef(null);
+  const toastTimer = React.useRef(null);
+
+  const showToast = (message, type = "success", timeout = 4000) => {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast({ open: true, type, message });
+    toastTimer.current = setTimeout(() => {
+      setToast((t) => ({ ...t, open: false }));
+    }, timeout);
+  };
+
+  React.useEffect(() => {
+    return () => {
+      if (toastTimer.current) clearTimeout(toastTimer.current);
+    };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    if (loading) return;
+
+    setLoading(true);
+    setStatus(null);
+
+    const form = formRef.current || e.currentTarget;
+    const fd = new FormData(form);
 
     const payload = {
       firstName: fd.get("firstName") || "",
@@ -32,17 +60,29 @@ export default function ContactSection({ imageSrc }) {
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
-      if (!res.ok || !data.ok) throw new Error(data.error || "Failed");
+      let data = null;
+      try {
+        data = await res.json();
+      } catch {
+        // ignore parse error (e.g., HTML error page)
+      }
+
+      if (!res.ok || !data?.ok) {
+        const serverMsg = data?.error || data?.details || res.statusText || "Request failed";
+        throw new Error(serverMsg);
+      }
 
       setStatus("success");
-      e.currentTarget.reset(); // optional: clear the form
+      showToast("Thanks! Your message was sent successfully.", "success");
+      form?.reset();
     } catch (err) {
-      console.error(err);
+      console.error("CONTACT SUBMIT ERROR:", err);
       setStatus("error");
+      showToast(err?.message || "Sorry, something went wrong while sending email.", "error");
+    } finally {
+      setLoading(false);
     }
   };
-
 
   return (
     <section className="bg-white">
@@ -52,10 +92,10 @@ export default function ContactSection({ imageSrc }) {
           <div className="w-full">
             <h2 className="text-3xl font-bold text-gray-900">GET IN TOUCH</h2>
             <p className="mt-2 text-gray-600">
-              Our friendly team would love to hear from you.
+              Start a conversation about how we can create value together.
             </p>
 
-            <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="mt-8 space-y-6" onSubmit={handleSubmit}>
               {/* First Name + Last Name */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -69,7 +109,8 @@ export default function ContactSection({ imageSrc }) {
                     placeholder="First name"
                     required
                     autoComplete="given-name"
-                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={loading}
+                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                   />
                 </div>
                 <div>
@@ -83,7 +124,8 @@ export default function ContactSection({ imageSrc }) {
                     placeholder="Last name"
                     required
                     autoComplete="family-name"
-                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={loading}
+                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                   />
                 </div>
               </div>
@@ -100,7 +142,8 @@ export default function ContactSection({ imageSrc }) {
                   placeholder="you@company.com"
                   required
                   autoComplete="email"
-                  className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  disabled={loading}
+                  className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                 />
               </div>
 
@@ -114,7 +157,8 @@ export default function ContactSection({ imageSrc }) {
                     id="countryCode"
                     name="countryCode"
                     required
-                    className="w-28 rounded-l-md border border-gray-300 bg-gray-50 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={loading}
+                    className="w-28 rounded-l-md border border-gray-300 bg-gray-50 px-3 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                   >
                     <option value="+1">US +1</option>
                     <option value="+44">UK +44</option>
@@ -127,7 +171,8 @@ export default function ContactSection({ imageSrc }) {
                     placeholder="+1 (555) 000-0000"
                     required
                     autoComplete="tel"
-                    className="block w-full flex-1 border border-gray-300 border-l-0 rounded-r-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={loading}
+                    className="block w-full flex-1 border border-gray-300 border-l-0 rounded-r-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                   />
                 </div>
               </div>
@@ -145,7 +190,8 @@ export default function ContactSection({ imageSrc }) {
                     placeholder="Company name"
                     required
                     autoComplete="organization"
-                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={loading}
+                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                   />
                 </div>
                 <div>
@@ -158,7 +204,8 @@ export default function ContactSection({ imageSrc }) {
                     name="position"
                     placeholder="Position"
                     required
-                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    disabled={loading}
+                    className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                   />
                 </div>
               </div>
@@ -174,7 +221,8 @@ export default function ContactSection({ imageSrc }) {
                   rows={5}
                   placeholder="Leave us a message..."
                   required
-                  className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  disabled={loading}
+                  className="mt-1 block w-full border border-gray-300 rounded-md px-3 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                 />
               </div>
 
@@ -185,7 +233,8 @@ export default function ContactSection({ imageSrc }) {
                   name="privacyPolicy"
                   type="checkbox"
                   required
-                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                  disabled={loading}
+                  className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 disabled:opacity-60"
                 />
                 <label htmlFor="privacyPolicy" className="ml-2 block text-sm text-gray-600">
                   You agree to our friendly{" "}
@@ -205,19 +254,54 @@ export default function ContactSection({ imageSrc }) {
               <div>
                 <button
                   type="submit"
-                  className="mt-4 w-full md:w-auto inline-flex items-center justify-center bg-blue-600 text-white font-medium py-3 px-6 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  disabled={loading}
+                  aria-busy={loading}
+                  aria-live="polite"
+                  className="mt-4 w-full md:w-auto inline-flex items-center justify-center bg-blue-600 text-white font-medium py-3 px-6 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
                 >
-                  Send Message
+                  {loading ? (
+                    <span className="inline-flex items-center gap-2">
+                      <svg
+                        className="animate-spin h-5 w-5"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden="true"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        />
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                        />
+                      </svg>
+                      Sending…
+                    </span>
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </div>
             </form>
+
+            {/* Optional inline status */}
+            {status === "success" && (
+              <p className="text-green-600 mt-2">
+                Thanks! We’ve emailed you and received your details.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-600 mt-2">
+                Sorry, something went wrong while sending email.
+              </p>
+            )}
           </div>
-          {status === "success" && (
-            <p className="text-green-600 mt-2">Thanks! We’ve emailed you and received your details.</p>
-          )}
-          {status === "error" && (
-            <p className="text-red-600 mt-2">Sorry, something went wrong while sending email.</p>
-          )}
 
           {/* Right Column: Image */}
           <div className="relative w-full h-80 sm:h-96 lg:h-full">
@@ -228,6 +312,40 @@ export default function ContactSection({ imageSrc }) {
               className="rounded-md object-cover"
               priority
             />
+          </div>
+        </div>
+      </div>
+
+      {/* Toast / Snackbar */}
+      <div
+        className={`fixed bottom-6 right-6 z-[60] transition-all duration-300 ${
+          toast.open ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
+        }`}
+        role="status"
+        aria-live="polite"
+      >
+        <div
+          className={`min-w-[260px] max-w-[360px] rounded-md shadow-lg px-4 py-3 text-sm
+            ${
+              toast.type === "success"
+                ? "bg-green-600 text-white"
+                : toast.type === "error"
+                ? "bg-red-600 text-white"
+                : "bg-gray-800 text-white"
+            }`}
+        >
+          <div className="flex items-start gap-3">
+            <span className="mt-0.5">
+              {toast.type === "success" ? "✅" : toast.type === "error" ? "⚠️" : "ℹ️"}
+            </span>
+            <div className="flex-1 leading-5">{toast.message}</div>
+            <button
+              onClick={() => setToast((t) => ({ ...t, open: false }))}
+              className="ml-2 opacity-80 hover:opacity-100"
+              aria-label="Close notification"
+            >
+              ✕
+            </button>
           </div>
         </div>
       </div>

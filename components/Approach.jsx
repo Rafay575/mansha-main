@@ -19,13 +19,9 @@ export default function Approach() {
 
   return (
     <div className=" py-8">
-      <h2 className="text-3xl font-bold mb-4">Our Approach</h2>
-      <p className="text-base mb-6">
-        At Mansha & Brothers, we have developed our 4 Ds Approach – Discover,
-        Design, Develop, Deliver, Support. This combines tradition with
-        innovation to deliver lasting value. From understanding your needs to
-        creating and delivering high-performance products, we ensure precision
-        and efficiency at every step.
+      <h2 className="text-[38px] xl:text-[43px] font-bold mb-4">Our Approach</h2>
+      <p className="text-[17px] xl:text-[24px] mb-6">
+       We have developed our 4Ds Approach which continues our mission of being innovating and efficient in every step. From understanding your needs to creating and delivering high performing products. 
       </p>
 
 <div className="flex flex-col lg:flex-row lg:space-x-4 w-full">

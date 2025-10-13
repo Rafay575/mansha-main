@@ -4,11 +4,11 @@ import Link from 'next/link'
 export default function GetInTouch() {
   return (
     <div className=' text-center'>
-      <div className='getintouch min-h-[300px] w-full text-center rounded-[20px] py-[20px] px-[15%]'>
+      <div className='getintouch min-h-[400px] w-full text-center rounded-[20px] py-[20px] px-[15%]'>
         <p className='text-white text-[50px] font-bold'>Get In Touch</p>
-        <p className='text-white text-[19px] mt-[20px]'>We'd love to connect and explore how we can support your brand's journey. Whether you're
-          looking to elevate product quality, streamline production, or develop something entirely new —
-          let's start a conversation and create something exceptional together.</p>
+        <p className='text-white text-[24px] mt-[20px]'>
+         We’re here to build what’s next, creating products that deliver quality, consistency, and real value. Let’s start a conversation about how we can make it happen together.
+          </p>
       </div>
 
       <Link href={"/contact"}>

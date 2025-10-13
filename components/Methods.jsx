@@ -4,38 +4,38 @@ import React, { useState } from "react";
 import { Plus, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
- const cardData = [
-        {
-            id: 1,
-            title: "Discover",
-            content:
-                "Since 1959, we’ve evolved from a local sports shop to a trusted manufacturer not by chasing trends, but by staying true to what matters. In 1989, we shifted from retail to making products with intention, partnering with brands who care about craft, values, and impact. For us, it’s never just about what we make—it’s about why we make it, and who we make it with.",
-        },
-        {
-            id: 2,
-            title: "Plan",
-            content:
-                "We carefully map out every project through detailed planning, ensuring timelines, resources, and goals align. Our strategic process includes market research, technical feasibility, and stakeholder alignment to reduce risks and ensure efficiency.",
-        },
-        {
-            id: 3,
-            title: "Design",
-            content:
-                "Our design process blends creativity with functionality. From wireframes to full prototypes, we focus on creating visually compelling and user-friendly interfaces that reflect your brand and enhance the user experience across all devices.",
-        },
-        {
-            id: 4,
-            title: "Build",
-            content:
-                "Our development team brings ideas to life with clean, scalable code. Using modern stacks like MERN/Next.js, we build secure, high-performance applications with backend integration, database management, and full responsiveness.",
-        },
-        {
-            id: 5,
-            title: "Launch",
-            content:
-                "We finalize deployment with rigorous testing and quality checks. From server setup to post-launch monitoring, we ensure a smooth go-live experience. We also offer ongoing support and optimization to keep your project running smoothly.",
-        },
-    ];
+const cardData = [
+  {
+    id: 1,
+    title: "Discover",
+    content:
+      "Since 1959, we’ve grown from a local shop to a reliable and trusted manufacturer by staying true to what matters. We create with intention, partnering with brands that value craft, purpose, and impact.",
+  },
+  {
+    id: 2,
+    title: "Design",
+    content:
+      "Gathered insights are transformed into practical, high-performance solutions. Each concept is engineered for function, durability, and scalability from the start.",
+  },
+  {
+    id: 3,
+    title: "Develop",
+    content:
+      "Prototypes evolve through testing, data, and collaboration. The result is refined product ready for consistent, large-scale production.",
+  },
+  {
+    id: 4,
+    title: "Deliver",
+    content:
+      "Precision planning and intense quality control ensure reliability across every shipment. Global partners receive on-time delivery with verified standards.",
+  },
+  {
+    id: 5,
+    title: "Support",
+    content:
+      "Partnership extends beyond production. Continuous improvement, transparent communication, and technical support sustain long-term performance.",
+  },
+];
 
 
 
@@ -69,7 +69,7 @@ export default function Methods() {
           const transitionStyles = isMd
             ? {
                 width: isActive ? "35%" : "14%",
-                height: "600px", // fixed height on md+
+                height: "450px", // fixed height on md+
                 minWidth: isActive ? "220px" : "110px",
               }
             : {

@@ -5,7 +5,7 @@ import Image from "next/image";
 import img1 from "@/public/images/img1.jpg";
 import img2 from "@/public/images/img2.webp";
 import img3 from "@/public/images/img3.webp";
-import img4 from "@/public/images/img4.jpg";
+import img4 from "@/public/images/pp.jpg";
 import img5 from "@/public/images/img5.webp";
 import img6 from "@/public/images/img6.webp";
 import img7 from "@/public/images/img7.webp";
