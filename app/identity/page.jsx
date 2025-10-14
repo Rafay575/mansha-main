@@ -2,10 +2,13 @@ import React from "react";
 import img from "@/public/images/bop.jpg";
 import Image from "next/image";
 import Carousel from "@/components/Carousel";
+import FullWidthBanner from "@/components/FullWidthBanner";
 
 export default function page() {
  
   return (
+    <>
+      <FullWidthBanner />
     <div className="w-[96vw] mx-auto overflow-x-hidden">
       <div className="">
         <div className="pt-[20px] md:pt-[40px] lg:pt-[80px] pb-[20px]">
@@ -26,7 +29,7 @@ export default function page() {
             </p>
           </div>
         </div>
-        <section className="w-full bg-[#eaf6fb] my-10 py-6 pb-32 md:py-6 md:pb-32">
+        <section className="w-full bg-[#eaf6fb] my-10 py-6 pb-12 md:py-6 md:pb-12">
           <h2 className="text-center font-bold text-2xl md:text-3xl">
             Trusted By
           </h2>
@@ -42,5 +45,7 @@ export default function page() {
         <Carousel />
       </div>
     </div>
+    </>
+
   );
 }

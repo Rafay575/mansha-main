@@ -2,7 +2,7 @@
 import React from "react";
 // import img from "@/public/images/teaching.webp";
 import Image from "next/image";
-import img1 from "@/public/images/img1.jpg";
+import img1 from "@/public/images/r.jpg";
 import img2 from "@/public/images/img2.webp";
 import img3 from "@/public/images/img3.webp";
 import img4 from "@/public/images/pp.jpg";

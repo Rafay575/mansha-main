@@ -69,12 +69,12 @@ export default function Methods() {
           const transitionStyles = isMd
             ? {
                 width: isActive ? "35%" : "14%",
-                height: "450px", // fixed height on md+
+                height: "430px", // fixed height on md+
                 minWidth: isActive ? "220px" : "110px",
               }
             : {
                 width: "96%",
-                height: isActive ? "400px" : "100px",
+                height: isActive ? "300px" : "100px",
                 minWidth: "200px",
               };
 

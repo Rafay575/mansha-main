@@ -32,7 +32,7 @@ const ApproachHero = () => {
           {/* Text block */}
           <div className="w-full lg:w-1/2 py-5 md:py-0 flex flex-col items-start">
             <p className="text-[25px] xl:text-[40px] lg:pr-10 mt-4  font-bold">
-              From process optimisation to responsible sourcing, forward-thinking solutions shape every layer of our work. By combining data, design, and discipline, we create products that set new standards.
+              From responsible sourcing to process optimisation, forward-thinking solutions shape every layer of our work. By combining data, design, and discipline, we create products that set new standards.
             </p>
           </div>
         </div>

@@ -6,10 +6,10 @@ import { Plus, X } from "lucide-react";
 export default function Approach() {
   const cardData = [
     { id: 1, title: "Discover" },
-    { id: 2, title: "Plan" },
-    { id: 3, title: "Design" },
-    { id: 4, title: "Build" },
-    { id: 5, title: "Launch" },
+    { id: 2, title: "Design" },
+    { id: 3, title: "Develop" },
+    { id: 4, title: "Deliver" },
+    { id: 5, title: "Support" },
   ];
   const [activeCard, setActiveCard] = useState(1);
 
