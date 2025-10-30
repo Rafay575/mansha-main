@@ -34,7 +34,7 @@ export default function FullWidthBanner() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Banner height: tweak as needed */}
-      <div className="relative h-[55vh] min-h-[320px] w-full md:h-[95vh]">
+      <div className="relative h-[20vh] min-h-[200px] w-full md:h-[95vh]">
         <div
           className="flex h-full"
           style={{

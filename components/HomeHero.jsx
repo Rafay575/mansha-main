@@ -5,6 +5,19 @@ import Image from "next/image";
 export default function HomeHero() {
   const [videoReady, setVideoReady] = useState(false);
   const videoRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if the window size is mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // You can adjust the breakpoint as needed
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize); // Update on resize
+
+    return () => window.removeEventListener("resize", handleResize); // Cleanup on component unmount
+  }, []);
 
   // Try autoplay when ready
   useEffect(() => {
@@ -16,7 +29,7 @@ export default function HomeHero() {
   }, [videoReady]);
 
   return (
-    <section className="relative w-full min-h-screen flex flex-col justify-end pl-[20px] md:pl-[50px] pb-[40px] overflow-hidden">
+    <section className="relative w-full min-h-[60vh] md:min-h-screen flex flex-col justify-end pl-[20px] md:pl-[50px] pb-[40px] overflow-hidden">
       {/* Fallback Image */}
       {!videoReady && (
         <Image
@@ -31,7 +44,7 @@ export default function HomeHero() {
       {/* Video Background */}
       <video
         ref={videoRef}
-        src="/images/video.mp4"
+        src={isMobile ? "/images/video2.mp4" : "/images/video.mp4"} // Conditional video source
         muted
         playsInline
         loop
