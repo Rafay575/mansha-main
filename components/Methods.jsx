@@ -56,7 +56,7 @@ export default function Methods() {
   };
 
   return (
-    <div className="working mt-[60px] py-20">
+    <div className="working lg:mt-[60px] py-20">
       <p className="text-[50px] md:text-[70px] text-white font-bold leading-[72px] text-center">
         The <span className="text-[#3F82D7]">4DS</span> Method
       </p>
@@ -85,7 +85,7 @@ export default function Methods() {
               layout
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className={`
-                rounded-[25px] p-2 sm:p-4 cursor-pointer overflow-hidden flex flex-col
+                rounded-[25px] relative p-2 sm:p-4 cursor-pointer overflow-hidden flex flex-col
                 bg-gray-50 bg-opacity-50 text-white mx-auto
                 transition-all duration-500 ease-in-out
               `}
@@ -94,19 +94,30 @@ export default function Methods() {
               {/* Header */}
               <div className="flex items-center  my-2 ml-6 text-white font-semibold text-2xl">
                 {card.id.toString().padStart(2, "0")}
-                {isActive && (
+                {isActive ? (
                   <>
                     <span className="mx-2 text-2xl">|</span>
                     <span className="ml-2 text-5xl font-semibold">
                       {card.title}
                     </span>
                   </>
-                )}
+                ):
+                (
+                    <motion.div
+              className="w-8  h-8 rounded-full border border-white flex items-center justify-center absolute  !left-[46%] !top-[35%] md:!top-1/2 md:!left-[40%] "
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                >
+                  <Plus className="w-4 h-4 text-white" />
+                </motion.div>
+                )
+                }
               </div>
 
               {/* Content */}
-              <AnimatePresence initial={false} mode="wait">
                 {isActive && (
+              <AnimatePresence initial={false} mode="wait">
                   <motion.div
                     key="content"
                     initial={{ opacity: 0, height: 0 }}
@@ -122,20 +133,10 @@ export default function Methods() {
                       </div>
                     </div>
                   </motion.div>
-                )}
               </AnimatePresence>
+                )}
 
-              {/* Plus icon when collapsed */}
-              {!isActive && (
-                <motion.div
-                  className="w-8 h-8 rounded-full border border-white flex items-center justify-center mt-auto self-center"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                >
-                  <Plus className="w-4 h-4 text-white" />
-                </motion.div>
-              )}
+            
             </motion.div>
           );
         })}
