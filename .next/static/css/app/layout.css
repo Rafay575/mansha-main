@@ -924,6 +924,9 @@ video {
 .h-full {
   height: 100%;
 }
+.h-\[75vh\] {
+  height: 75vh;
+}
 .min-h-\[320px\] {
   min-height: 320px;
 }
@@ -1335,6 +1338,10 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
+}
+.object-top {
+  -o-object-position: top;
+     object-position: top;
 }
 .p-0 {
   padding: 0px;
@@ -2017,6 +2024,14 @@ select:focus {
 
   .md\:h-8 {
     height: 2rem;
+  }
+
+  .md\:h-\[80vh\] {
+    height: 80vh;
+  }
+
+  .md\:h-\[95vh\] {
+    height: 95vh;
   }
 
   .md\:w-\[80\%\] {

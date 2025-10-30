@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
-const IMAGES = ["/images/s1.jpg", "/images/s2.jpg", "/images/s3.jpg", "/images/s4.jpg"];
+const IMAGES = ["/images/s1.png", "/images/s2.png", "/images/s3.png", "/images/s4.png"];
 const TRANSITION_MS = 500;   // slide animation duration
 const AUTOPLAY_EVERY = 3000; // time each slide stays before moving (change if you want)
 
@@ -34,7 +34,7 @@ export default function FullWidthBanner() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Banner height: tweak as needed */}
-      <div className="relative h-[55vh] min-h-[320px] w-full md:h-[70vh]">
+      <div className="relative h-[55vh] min-h-[320px] w-full md:h-[95vh]">
         <div
           className="flex h-full"
           style={{
@@ -51,7 +51,7 @@ export default function FullWidthBanner() {
                 fill
                 priority={i === 0}
                 sizes="100vw"
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
           ))}
