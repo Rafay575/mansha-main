@@ -1,14 +1,14 @@
 import React from "react";
-import img from "@/public/images/bop.jpg";
-import Image from "next/image";
+
 import Carousel from "@/components/Carousel";
 import FullWidthBanner from "@/components/FullWidthBanner";
+import GetInTouch from "@/components/GetInTouch";
 
 export default function page() {
  
   return (
     <>
-      <FullWidthBanner />
+      
     <div className="w-[96vw] mx-auto overflow-x-hidden">
       <div className="">
         <div className="pt-[20px] md:pt-[40px] lg:pt-[80px] pb-[20px]">
@@ -20,8 +20,9 @@ export default function page() {
           </p>
         </div>
         <div className="flex flex-wrap">
-          <div className="w-full lg:w-[50%] p-[0] pt-[40px]  lg:p-[20px]">
-            <Image src={img} className="rounded-[20px]" alt="home2" />
+          <div className="w-full lg:w-[50%] p-[0] pt-[40px] !rounded-xl  lg:p-[20px]">
+            {/* <Image src={img} className="rounded-[20px]" alt="home2" /> */}
+            <FullWidthBanner />
           </div>
           <div className="w-full lg:w-[50%]  flex flex-col items-start ">
             <p className="text-[25px] xl:text-[30px]  mt-[20px] xl:mt-[32px] font-semibold ">
@@ -44,6 +45,7 @@ export default function page() {
         </div>
         <Carousel />
       </div>
+      <GetInTouch/>
     </div>
     </>
 

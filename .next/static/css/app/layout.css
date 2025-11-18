@@ -921,12 +921,6 @@ video {
 .min-h-\[320px\] {
   min-height: 320px;
 }
-.min-h-screen {
-  min-height: 100vh;
-}
-.min-h-\[80vh\] {
-  min-height: 80vh;
-}
 .min-h-\[60vh\] {
   min-height: 60vh;
 }
@@ -980,6 +974,12 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[100px\] {
+  width: 100px;
+}
+.w-\[120px\] {
+  width: 120px;
 }
 .min-w-0 {
   min-width: 0px;
@@ -1153,8 +1153,14 @@ video {
 .whitespace-nowrap {
   white-space: nowrap;
 }
+.\!rounded-xl {
+  border-radius: 0.75rem !important;
+}
 .rounded {
   border-radius: 0.25rem;
+}
+.rounded-2xl {
+  border-radius: 1rem;
 }
 .rounded-\[1\.5rem\] {
   border-radius: 1.5rem;
@@ -1816,7 +1822,7 @@ select:focus {
 .getintouch {
   background-image:
     linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(/_next/static/media/git.12d5acf4.jpg);
+    url(/_next/static/media/bop.39739a0a.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1996,16 +2002,12 @@ select:focus {
     height: 310px;
   }
 
+  .md\:h-\[400px\] {
+    height: 400px;
+  }
+
   .md\:h-\[440px\] {
     height: 440px;
-  }
-
-  .md\:h-\[95vh\] {
-    height: 95vh;
-  }
-
-  .md\:h-full {
-    height: 100%;
   }
 
   .md\:min-h-screen {
@@ -2018,6 +2020,10 @@ select:focus {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-\[150px\] {
+    width: 150px;
   }
 
   .md\:basis-full {

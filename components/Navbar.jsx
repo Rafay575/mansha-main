@@ -33,7 +33,7 @@ export default function Navbar() {
           <Image
             src={logo}
             alt="Mansha & Brothers"
-            className="w-[150px] hover:scale-[1.1] duration-300 cursor-pointer"
+            className="w-[120px] md:w-[150px] hover:scale-[1.1] duration-300 cursor-pointer"
             priority
           />
         </Link>

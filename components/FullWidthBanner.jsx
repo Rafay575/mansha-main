@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
@@ -34,9 +33,9 @@ export default function FullWidthBanner() {
   return (
     <section className="relative w-full overflow-hidden">
       {/* Banner height: tweak as needed */}
-      <div className="relative h-[20vh] min-h-[200px] w-full md:h-[95vh]">
+      <div className="relative  h-[20vh] min-h-[200px] w-full md:h-[400px]">
         <div
-          className="flex h-full"
+          className="flex !rounded-xl h-full"
           style={{
             width: `${track.length * 100}%`,
             transform: `translate3d(-${index * (100 / track.length)}%, 0, 0)`,
@@ -44,14 +43,14 @@ export default function FullWidthBanner() {
           }}
         >
           {track.map((src, i) => (
-            <div key={`${src}-${i}`} className="relative h-full w-full" style={{ flex: `0 0 ${100 / track.length}%` }}>
+            <div key={`${src}-${i}`} className="relative !rounded-xl h-full w-full" style={{ flex: `0 0 ${100 / track.length}%` }}>
               <Image
                 src={src}
                 alt={`banner-${i}`}
                 fill
                 priority={i === 0}
                 sizes="100vw"
-                className="object-cover object-top"
+                className="object-cover object-top rounded-2xl"
               />
             </div>
           ))}
