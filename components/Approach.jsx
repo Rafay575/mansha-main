@@ -19,19 +19,23 @@ export default function Approach() {
 
   return (
     <div className=" py-8">
-      <h2 className="text-[38px] xl:text-[43px] font-bold mb-4">Our Approach</h2>
+      <h2 className="text-[38px] xl:text-[43px] font-bold mb-4">
+        Our Approach
+      </h2>
       <p className="text-[17px] xl:text-[24px] mb-6">
-       We have developed our 4Ds Approach which continues our mission of being innovating and efficient in every step. From understanding your needs to creating and delivering high performing products. 
+        We have developed our 4Ds Approach which continues our mission of being
+        innovating and efficient in every step. From understanding your needs to
+        creating and delivering high performing products.
       </p>
 
-<div className="flex flex-col lg:flex-row lg:space-x-4 w-full">
-  {cardData.map((card) => {
-    const isActive = activeCard === card.id;
-    return (
-      <div
-        key={card.id}
-        onClick={() => handleToggle(card.id)}
-        className={`
+      <div className="flex flex-col lg:flex-row lg:space-x-4 w-full">
+        {cardData.map((card) => {
+          const isActive = activeCard === card.id;
+          return (
+            <div
+              key={card.id}
+              onClick={() => handleToggle(card.id)}
+              className={`
           relative cursor-pointer overflow-hidden rounded-[1.5rem]
           my-2 lg:my-0
           /* sizing */
@@ -44,51 +48,47 @@ export default function Approach() {
           /* smooth transitions */
           transition-[width,height,background-color] duration-500 ease-in-out
         `}
-      >
-        {/* Top row: index */}
-        <div className="flex items-center justify-between px-6 py-4">
-          <span className={`text-lg w-full font-medium ${isActive ? "" : "text-center"}`}>
-            {String(card.id).padStart(2, "0")}
-          </span>
-
-          {/* Active: X in bottom-right, faded in */}
-          {isActive && (
-            <div
-              className="absolute bottom-4 right-4 rounded-full border-2 p-2
-                         transition-opacity duration-500 ease-in-out  animate-fadeIn"
             >
-              <X className="w-6 h-6 stroke-white" />
-            </div>
-          )}
+              {/* Top row: index */}
+              <div className="flex items-center justify-between px-6 py-4">
+                <span
+                  className={`text-lg w-full font-medium ${
+                    isActive ? "" : "text-center"
+                  }`}
+                >
+                  {String(card.id).padStart(2, "0")}
+                </span>
 
-          {/* Collapsed: + centered, popped in */}
-          {!isActive && (
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                {/* Active: X in bottom-right, faded in */}
+               
+
+                {/* Collapsed: + centered, popped in */}
+                {!isActive && (
+                  <div
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                          rounded-full border-2 p-2 border-gray-800
                          transition-transform duration-500 ease-in-out transform hover:scale-110"
-            >
-              <Plus className="w-8 h-8 stroke-gray-800" />
-            </div>
-          )}
-        </div>
+                  >
+                    <Plus className="w-8 h-8 stroke-gray-800" />
+                  </div>
+                )}
+              </div>
 
-        {/* Active title: fade & slide in */}
-        {isActive && (
-          <div className="absolute inset-0 flex items-center justify-start px-6">
-            <h3
-              className="text-3xl lg:text-4xl font-extrabold leading-tight text-white
+              {/* Active title: fade & slide in */}
+              {isActive && (
+                <div className="absolute inset-0 flex items-center justify-start px-6">
+                  <h3
+                    className="text-3xl lg:text-4xl font-extrabold leading-tight text-white
                          transition-opacity duration-500 ease-in-out  animate-fadeIn"
-            >
-              {card.title}
-            </h3>
-          </div>
-        )}
+                  >
+                    {card.title}
+                  </h3>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>
-
 
       <Link href="/identity">
         <button className="mt-6 bg-[#3C9BE8] text-white text-lg px-5 py-3 rounded-lg">

@@ -127,11 +127,7 @@ export default function Methods() {
                     className="text-[15px] p-8 lg:p-14 transition-all sm:text-[15px] md:text-[20px] font-medium flex flex-col flex-grow"
                   >
                     {card.content}
-                    <div className="mt-auto flex justify-end">
-                      <div className="w-8 h-8 rounded-full border border-white flex items-center justify-center">
-                        <X className="w-4 h-4 text-white" />
-                      </div>
-                    </div>
+                 
                   </motion.div>
               </AnimatePresence>
                 )}
