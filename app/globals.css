@@ -1,7 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@reference "tailwindcss";
 
+@import "tailwindcss/preflight";
+@tailwind utilities;
 
 body {
   width: 100vw;
@@ -43,7 +43,7 @@ body {
 }
 
 select {
-  @apply focus:outline-0
+  @apply focus:outline-0;
 }
 
 .getintouch {
@@ -53,7 +53,6 @@ select {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  /* Default position for larger screens */
 }
 
 /* Medium devices */

@@ -86,7 +86,7 @@ export default function Methods() {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className={`
                 rounded-[25px] relative p-2 sm:p-4 cursor-pointer overflow-hidden flex flex-col
-                bg-gray-50 bg-opacity-50 text-white mx-auto
+                bg-white/50 text-white mx-auto
                 transition-all duration-500 ease-in-out
               `}
               style={transitionStyles}

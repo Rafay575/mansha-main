@@ -77,10 +77,10 @@ export default function Carouselone() {
             <Carousel opts={{ align: "start"}}  setApi={setApi} className="w-[70%] md:w-[80%] max-w-xl">
                 <CarouselContent>
                     {carouselData.map((item, index) => (
-                        <CarouselItem key={index} className="md:basis-full">
+                        <CarouselItem key={index} className="md:basis-full border-0">
                             <div className="p-2">
-                                <Card className="bg-[#EAF7FE] text-black shadow-lg h-[240px] lg:h-[200px]">
-                                    <CardContent className="flex flex-col gap-4 px-8 pb-8">
+                                <Card className="bg-[#EAF7FE] border-[#EAF7FE] text-black shadow-lg h-[240px] lg:h-[200px]">
+                                    <CardContent className="flex  flex-col gap-4 px-8 pb-8">
                                         <h3 className="text-xl md:text-2xl font-bold text-center">{item.title}</h3>
                                         <p className="text-base md:text-lg font-semibold  leading-6">{item.content}</p>
                                     </CardContent>
